@@ -1,5 +1,5 @@
 {
-  "name": "liam-blog",
+  "name": "melodicgin-blog",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -9,7 +9,16 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/netlify": "^6.5.11",
-    "astro": "^5.13.10"
+    "@tailwindcss/vite": "^4.1.13",
+    "astro": "^5.14.1",
+    "stats.js": "^0.17.0",
+    "tailwindcss": "^4.1.13",
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19",
+    "@types/stats.js": "^0.17.4",
+    "@types/three": "^0.180.0",
+    "sass": "^1.93.2"
   }
 }
