@@ -4,40 +4,103 @@ title: "About Me"
 description: "Learn more about MELODIC-GIN"
 ---
 
-<BaseLayout 
-  title="About Me" 
-  description="Learn more about MELODIC-GIN, an AI Full-Stack Engineer and Agent Architect. Discover my skills in modern web technologies and artificial intelligence."
->
-  <div class="max-w-4xl mx-auto">
-    <h1 class="text-4xl font-bold mb-8 text-white">About Me</h1>
-    
-    <div class="bg-white/20 p-8 rounded-lg backdrop-blur-md border border-gray-200 text-white">
-      <p class="mb-6 text-lg">
-        Welcome to my blog! I'm <strong>MELODIC-GIN</strong>, a passionate AI Full-Stack Engineer and Agent Architect.
-      </p>
+<BaseLayout title="About Me" description="Learn more about MELODIC-GIN">
+  <div class="prose prose-lg lg:prose-xl max-w-none text-white bg-white/20 p-8 rounded-lg backdrop-blur-md border border-gray-200">
+    <h1 class="text-5xl font-black mb-8 tracking-tighter text-white">About Me</h1>
+
+    <p class="text-white opacity-75 mb-6">Welcome to my blog! I'm <strong class="text-bauhaus-dark">Liam Fan</strong> (MELODIC-GIN), a passionate AI Full-Stack Engineer and Agent Architect.</p>
+
+    <h2 class="text-3xl font-bold text-white mb-6 flex items-center">
+      <span class="mr-3">👨‍💻</span> My Background
+    </h2>
+
+    <p class="text-white opacity-75 mb-6">I specialize in architecting and developing tool-augmented LLM Agents. This blog is where I document my journey in building end-to-end AI applications, share insights on agentic workflows, and explore the intersection of modern web technologies and artificial intelligence.</p>
+
+    <h2 class="text-3xl font-bold text-white mb-6 flex items-center">
+      <span class="mr-3">🔧</span> Skills & Expertise
+    </h2>
+
+    <p class="text-white opacity-75 mb-6">My focus is on building robust, scalable, and intelligent systems. Below is a snapshot of my technical capabilities and the core architectures I work with.</p>
+
+    <h4 class="text-2xl font-bold text-bauhaus-dark mb-4">Technical Stack</h4>
+
+    <div class="overflow-x-auto mb-8">
+      <table class="min-w-full bg-white/10 rounded-lg backdrop-blur-md border border-white">
+        <thead>
+          <tr>
+            <th class="py-3 px-4 bg-bauhaus-blue/50 text-white font-bold text-left">Domain</th>
+            <th class="py-3 px-4 bg-bauhaus-blue/50 text-white font-bold text-left">Technologies & Methodologies</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-white/20 hover:bg-white/10 transition-colors">
+            <td class="py-3 px-4 text-white font-semibold"><strong>AI & Agent Engineering</strong></td>
+            <td class="py-3 px-4 text-white opacity-75">RAG, ReAct Agent Architecture, Workflow Orchestration, CoT Optimization, LangChain, Dify, OpenAI/Claude APIs, Gradio</td>
+          </tr>
+          <tr class="border-b border-white/20 hover:bg-white/10 transition-colors">
+            <td class="py-3 px-4 text-white font-semibold"><strong>Frontend Engineering</strong></td>
+            <td class="py-3 px-4 text-white opacity-75">Next.js, React, TypeScript, Tailwind CSS (Utility-First), iOS(ObjC/Swift), Android, React Native, Flutter</td>
+          </tr>
+          <tr class="border-b border-white/20 hover:bg-white/10 transition-colors">
+            <td class="py-3 px-4 text-white font-semibold"><strong>Backend & Full-Stack</strong></td>
+            <td class="py-3 px-4 text-white opacity-75">Node.js, Golang, Python (FastAPI/Flask), Vector DB (Milvus), SQL/NoSQL, HiveSQL</td>
+          </tr>
+          <tr class="hover:bg-white/10 transition-colors">
+            <td class="py-3 px-4 text-white font-semibold"><strong>Platforms & Automation</strong></td>
+            <td class="py-3 px-4 text-white opacity-75">Electron, Chrome Extensions, Playwright (RPA), Docker, CI/CD</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 class="text-2xl font-bold text-bauhaus-dark mb-6">Core Architectures</h4>
+
+    <h5 class="text-xl font-bold text-white mb-4">Retrieval-Augmented Generation (RAG)</h5>
+
+    <p class="text-white opacity-75 mb-4">I architect RAG pipelines to ground LLMs in private, real-time data, mitigating hallucinations and enhancing response accuracy. The core principle is semantic search over a vector knowledge base.</p>
+
+    <p class="text-white opacity-75 mb-4">The similarity between a query vector Q and document vectors D_i is calculated using Cosine Similarity:</p>
+
+    <h5 class="text-xl font-bold text-white mb-4">ReAct Agentic Loop</h5>
+
+    <p class="text-white opacity-75 mb-4">For tasks requiring multi-step reasoning and interaction with external tools (APIs, databases), I design agents based on the ReAct (Reason + Act) paradigm. This framework enables the agent to create and adjust plans dynamically.</p>
+
+    <h2 class="text-3xl font-bold text-white mb-6 flex items-center">
+      <span class="mr-3">📬</span> Get In Touch
+    </h2>
+
+    <p class="text-white opacity-75 mb-4">Feel free to reach out via email. I'd love to hear from you!</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+      <a href="mailto:windane@gmail.com" target="_blank" class="block p-4 bg-white/20 text-white rounded-lg backdrop-blur-md border border-white hover:shadow-xl hover:border-bauhaus-blue transition-all duration-300">
+        <div class="flex items-center">
+          <span class="mr-3">✉️</span>
+          <div>
+            <div class="font-bold">Email</div>
+            <div class="text-sm opacity-75">windane@gmail.com</div>
+          </div>
+        </div>
+      </a>
       
-      <h2 class="text-2xl font-bold mb-4 text-bauhaus-blue">My Background</h2>
-      <p class="mb-6">
-        I specialize in architecting and developing tool-augmented LLM Agents. This blog is where I document my journey in building end-to-end AI applications, share insights on agentic workflows, and explore the intersection of modern web technologies and artificial intelligence.
-      </p>
+      <a href="https://github.com/gin-melodic" target="_blank" class="block p-4 bg-white/20 text-white rounded-lg backdrop-blur-md border border-white hover:shadow-xl hover:border-bauhaus-blue transition-all duration-300">
+        <div class="flex items-center">
+          <span class="mr-3">💻</span>
+          <div>
+            <div class="font-bold">GitHub</div>
+            <div class="text-sm opacity-75">@gin-melodic</div>
+          </div>
+        </div>
+      </a>
       
-      <h2 class="text-2xl font-bold mb-4 text-bauhaus-blue">Skills & Expertise</h2>
-      <p class="mb-4">
-        My focus is on building robust, scalable, and intelligent systems. Below is a snapshot of my technical capabilities and the core architectures I work with.
-      </p>
-      
-      <h3 class="text-xl font-bold mb-2">Technical Stack</h3>
-      <ul class="list-disc pl-6 mb-6 space-y-2">
-        <li><strong>AI & Agent Engineering</strong>: RAG, ReAct Agent Architecture, Workflow Orchestration, CoT Optimization, LangChain, Dify, OpenAI/Claude APIs, Gradio</li>
-        <li><strong>Frontend Engineering</strong>: Next.js, React, TypeScript, Tailwind CSS (Utility-First), shadcn/ui (Composable)</li>
-        <li><strong>Backend & Full-Stack</strong>: Node.js, Golang, Python (FastAPI), Vector DB (Milvus), SQL/NoSQL</li>
-        <li><strong>Platforms & Automation</strong>: Electron, Chrome Extensions, Playwright (RPA), Docker, CI/CD</li>
-      </ul>
-      
-      <h2 class="text-2xl font-bold mb-4 text-bauhaus-blue">Get In Touch</h2>
-      <p>
-        Feel free to reach out to me on social media or through the contact form below. I'd love to hear from you!
-      </p>
+      <a href="https://x.com/melodicgin" target="_blank" class="block p-4 bg-white/20 text-white rounded-lg backdrop-blur-md border border-white hover:shadow-xl hover:border-bauhaus-blue transition-all duration-300">
+        <div class="flex items-center">
+          <span class="mr-3">🐦</span>
+          <div>
+            <div class="font-bold">X</div>
+            <div class="text-sm opacity-75">@melodicgin</div>
+          </div>
+        </div>
+      </a>
     </div>
   </div>
 </BaseLayout>
