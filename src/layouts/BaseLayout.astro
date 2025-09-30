@@ -7,9 +7,14 @@ import BauhausCanvas from '../components/BauhausCanvas.astro';
 export interface Props {
   title: string;
   description: string;
+  canonical?: string;
+  ogImage?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, canonical, ogImage } = Astro.props;
+
+const siteTitle = "MELODIC-GIN'S BLOG";
+const fullTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
 ---
 
 <!doctype html>
@@ -19,13 +24,26 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content="AI, Full-Stack, Developer, Agent Architect, Blog, Technology, Programming" />
+    <meta name="author" content="MELODIC-GIN" />
     
-    <!-- Import Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonical || "https://antinomy.me"} />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical || "https://antinomy.me"} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
     
     <!-- KaTeX CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
