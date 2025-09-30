@@ -1,0 +1,149 @@
+---
+interface Props {
+  options: Record<string, any>;
+  style?: string;
+  renderer?: 'canvas' | 'svg';
+  width?: string;
+  height?: string;
+}
+
+const { 
+  options, 
+  style = "", 
+  renderer = 'canvas',
+  width = "100%",
+  height = "400px"
+} = Astro.props;
+
+// 生成唯一的ID
+const id = `echarts-${Math.random().toString(36).substr(2, 9)}`;
+
+// 暗色主题配置
+const darkTheme = {
+  backgroundColor: '#333',
+  textStyle: {
+    color: '#fff'
+  },
+  title: {
+    textStyle: {
+      color: '#fff'
+    }
+  },
+  legend: {
+    textStyle: {
+      color: '#fff'
+    }
+  },
+  grid: {
+    borderColor: '#444'
+  },
+  categoryAxis: {
+    axisLine: {
+      lineStyle: {
+        color: '#444'
+      }
+    },
+    axisTick: {
+      lineStyle: {
+        color: '#444'
+      }
+    },
+    axisLabel: {
+      textStyle: {
+        color: '#fff'
+      }
+    },
+    splitLine: {
+      lineStyle: {
+        color: '#444'
+      }
+    }
+  },
+  valueAxis: {
+    axisLine: {
+      lineStyle: {
+        color: '#444'
+      }
+    },
+    axisTick: {
+      lineStyle: {
+        color: '#444'
+      }
+    },
+    axisLabel: {
+      textStyle: {
+        color: '#fff'
+      }
+    },
+    splitLine: {
+      lineStyle: {
+        color: '#444'
+      }
+    }
+  },
+  toolbox: {
+    iconStyle: {
+      normal: {
+        borderColor: '#fff'
+      }
+    }
+  },
+  tooltip: {
+    backgroundColor: 'rgba(50, 50, 50, 0.9)',
+    borderColor: '#333',
+    textStyle: {
+      color: '#fff'
+    }
+  }
+};
+---
+
+<div
+  id={id}
+  style={`width: ${width}; height: ${height}; background-color: #333; ${style}`}
+  class="echarts-wrapper rounded-lg overflow-hidden"
+></div>
+
+<script define:vars={{ id, chartOptions: options, chartRenderer: renderer, darkTheme }} is:inline>
+  // 使用 Astro 的客户端脚本方式
+  document.addEventListener('DOMContentLoaded', function() {
+    const container = document.getElementById(id);
+
+    if (container && chartOptions) {
+      // 动态导入 echarts - 使用正确的 ESM 导入方式
+      import('https://esm.sh/echarts@5.4.3').then((echartsModule) => {
+        const echarts = echartsModule.default || echartsModule;
+
+        if (echarts && echarts.init) {
+          // 注册暗色主题
+          echarts.registerTheme('darkTheme', darkTheme);
+
+          // 初始化图表，使用暗色主题
+          const chart = echarts.init(container, 'darkTheme', {
+            renderer: chartRenderer || 'canvas'
+          });
+
+          // 设置选项
+          chart.setOption(chartOptions);
+
+          // 响应窗口大小变化
+          const handleResize = () => {
+            chart.resize();
+          };
+
+          window.addEventListener('resize', handleResize);
+
+          // 清理事件监听器
+          window.addEventListener('beforeunload', () => {
+            window.removeEventListener('resize', handleResize);
+            chart.dispose();
+          });
+        } else {
+          console.error('ECharts init function not found');
+        }
+      }).catch((error) => {
+        console.error('Failed to load ECharts:', error);
+      });
+    }
+  });
+</script>

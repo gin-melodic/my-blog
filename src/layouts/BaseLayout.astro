@@ -2,7 +2,6 @@
 // src/layouts/BaseLayout.astro
 import '../styles/global.css'
 import '../styles/katex.css'
-import '../styles/mermaid.css'
 import BauhausCanvas from '../components/BauhausCanvas.astro';
 export interface Props {
   title: string;
@@ -55,22 +54,35 @@ const fullTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
         startOnLoad: true,
         theme: 'base',
         themeVariables: {
-          primaryColor: '#00000070',
-          primaryBorderColor: '#00FFFF',
-          primaryTextColor: '#FFFFFF',
-          secondaryColor: '#FF00FF',
-          secondaryBorderColor: '#FF00FF',
-          secondaryTextColor: '#FFFFFF',
-          tertiaryColor: '#FFFF00',
-          tertiaryBorderColor: '#FFFF00',
-          tertiaryTextColor: '#FFFFFF',
-          noteTextColor: '#FFFFFF',
-          lineColor: '#FF00FF',
-          textColor: '#FFFFFF',
-          mainBkg: '#00000070',
-          secondBkg: '#00000070',
-          altBackground: '#00000070',
-          fontFamily: 'Montserrat'
+          primaryColor: '#003366',
+          primaryBorderColor: '#00ffff',
+          primaryTextColor: '#ffffff',
+          secondaryColor: '#660066',
+          secondaryBorderColor: '#ff00ff',
+          secondaryTextColor: '#ffffff',
+          tertiaryColor: '#006666',
+          tertiaryBorderColor: '#ffff00',
+          tertiaryTextColor: '#ffffff',
+          noteTextColor: '#ffffff',
+          lineColor: '#00ffff',
+          textColor: '#ffffff',
+          mainBkg: '#003366',
+          secondBkg: '#660066',
+          altBackground: '#006666',
+          fontFamily: 'Montserrat',
+          background: '#333333',
+          pie1: '#69edff',
+          pie2: '#ff2af1',
+          pie3: '#f1ff27',
+          pie4: '#ff6315',
+          pie5: '#00ffff',
+          pie6: '#ff00ff',
+          pie7: '#ffff00',
+          pie8: '#00ff9d',
+          pie9: '#ff00aa',
+          pie10: '#a6ff00',
+          pie11: '#0066ff',
+          pie12: '#cc00ff'
         }
       });
       document.addEventListener('DOMContentLoaded', () => {

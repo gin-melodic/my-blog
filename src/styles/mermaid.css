@@ -10,11 +10,11 @@ pre.mermaid {
 
 :root {
   /* 赛博朋克配色 */
-  --cyber-primary: #33ffcfd3; /* 青色 */
+  --cyber-primary: #69edff; /* 青色 */
   --cyber-secondary: #ff2af1; /* 品红色 */
   --cyber-accent: #f1ff27; /* 黄色 */
   --cyber-highlight: #ff6315; /* 橙色 */
-  --cyber-node-bg: rgba(188, 73, 255, 0.7);
+  --cyber-node-bg: rgba(105, 237, 255, 0.3); /* 使用青色的半透明版本 */
   --cyber-text: #FFFFFF;
 }
 
