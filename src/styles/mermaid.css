@@ -1,0 +1,168 @@
+/* Mermaid 图表样式 - 赛博朋克配色方案适配黑色背景 */
+.mermaid {
+  background-color: transparent;
+}
+
+pre.mermaid {
+  background-color: transparent;
+  border: none;
+}
+
+:root {
+  /* 赛博朋克配色 */
+  --cyber-primary: #33ffcfd3; /* 青色 */
+  --cyber-secondary: #ff2af1; /* 品红色 */
+  --cyber-accent: #f1ff27; /* 黄色 */
+  --cyber-highlight: #ff6315; /* 橙色 */
+  --cyber-node-bg: rgba(188, 73, 255, 0.7);
+  --cyber-text: #FFFFFF;
+}
+
+.mermaid {
+  background-color: transparent;
+  color: var(--cyber-text);
+}
+
+/* 流程图节点样式 */
+.mermaid .node rect,
+.mermaid .node circle,
+.mermaid .node ellipse,
+.mermaid .node polygon,
+.mermaid .node path {
+  fill: var(--cyber-node-bg);
+  stroke: var(--cyber-primary);
+  stroke-width: 2px;
+}
+
+/* 节点文字样式 */
+.mermaid .node text {
+  fill: var(--cyber-primary);
+  stroke: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+/* 边线样式 */
+.mermaid .edgePath path {
+  stroke: var(--cyber-secondary);
+  stroke-width: 2px;
+  fill: var(--cyber-secondary);
+}
+
+.mermaid .edgeLabel text {
+  fill: var(--cyber-accent);
+  font-weight: 700;
+}
+
+/* 箭头样式 */
+.mermaid .arrowheadPath {
+  fill: var(--cyber-secondary);
+}
+
+/* 图例文字 */
+.mermaid .legend text {
+  fill: var(--cyber-highlight);
+  font-weight: 700;
+}
+
+/* 子图表标签 */
+.mermaid .cluster rect {
+  fill: rgba(0, 0, 0, 0.5);
+  stroke: var(--cyber-highlight);
+  stroke-width: 2px;
+  stroke-dasharray: 5, 5;
+}
+
+.mermaid .cluster text {
+  fill: var(--cyber-highlight);
+  font-weight: 900;
+}
+
+/* 序列图相关样式 */
+.mermaid .actor {
+  fill: var(--cyber-node-bg);
+  stroke: var(--cyber-primary);
+  stroke-width: 2px;
+}
+
+.mermaid text.actor {
+  fill: var(--cyber-primary);
+  font-weight: 700;
+}
+
+.mermaid .messageText {
+  fill: var(--cyber-accent);
+  font-weight: 700;
+}
+
+.mermaid .activation0 {
+  fill: var(--cyber-node-bg);
+  stroke: var(--cyber-secondary);
+  stroke-width: 2px;
+}
+
+/* 类图样式 */
+.mermaid .classGroup rect {
+  fill: var(--cyber-node-bg);
+  stroke: var(--cyber-primary);
+  stroke-width: 2px;
+}
+
+.mermaid .classGroup text {
+  fill: var(--cyber-primary);
+  font-weight: 700;
+}
+
+.mermaid .classLabel text {
+  fill: var(--cyber-highlight);
+  font-weight: 900;
+}
+
+/* 饼图样式 */
+.mermaid .pieTitleText {
+  fill: var(--cyber-accent);
+  font-weight: 900;
+  font-size: 1.2em;
+}
+
+.mermaid .slice {
+  stroke: var(--cyber-node-bg);
+  stroke-width: 2px;
+}
+
+.mermaid .slice:nth-child(1) { fill: var(--cyber-primary); }
+.mermaid .slice:nth-child(2) { fill: var(--cyber-secondary); }
+.mermaid .slice:nth-child(3) { fill: var(--cyber-accent); }
+.mermaid .slice:nth-child(4) { fill: var(--cyber-highlight); }
+
+.mermaid .legend text {
+  fill: var(--cyber-text);
+  font-weight: 700;
+}
+
+/* 状态图样式 */
+.mermaid .state rect {
+  fill: var(--cyber-node-bg);
+  stroke: var(--cyber-primary);
+  stroke-width: 2px;
+}
+
+.mermaid .state text {
+  fill: var(--cyber-primary);
+  font-weight: 700;
+}
+
+/* 甘特图样式 */
+.mermaid .task {
+  fill: var(--cyber-primary);
+  stroke: var(--cyber-secondary);
+}
+
+.mermaid .taskText {
+  fill: var(--cyber-text);
+  font-weight: 700;
+}
+
+.mermaid .section {
+  fill: var(--cyber-highlight);
+}

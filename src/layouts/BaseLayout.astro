@@ -1,5 +1,8 @@
 ---
 // src/layouts/BaseLayout.astro
+import '../styles/global.css'
+import '../styles/katex.css'
+import '../styles/mermaid.css'
 import BauhausCanvas from '../components/BauhausCanvas.astro';
 export interface Props {
   title: string;
@@ -8,6 +11,7 @@ export interface Props {
 
 const { title, description } = Astro.props;
 ---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -17,12 +21,44 @@ const { title, description } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="stylesheet" href="/src/styles/global.css" />
     
     <!-- Import Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- KaTeX CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+    
+    <!-- Mermaid JS -->
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ 
+        startOnLoad: true,
+        theme: 'base',
+        themeVariables: {
+          primaryColor: '#00000070',
+          primaryBorderColor: '#00FFFF',
+          primaryTextColor: '#FFFFFF',
+          secondaryColor: '#FF00FF',
+          secondaryBorderColor: '#FF00FF',
+          secondaryTextColor: '#FFFFFF',
+          tertiaryColor: '#FFFF00',
+          tertiaryBorderColor: '#FFFF00',
+          tertiaryTextColor: '#FFFFFF',
+          noteTextColor: '#FFFFFF',
+          lineColor: '#FF00FF',
+          textColor: '#FFFFFF',
+          mainBkg: '#00000070',
+          secondBkg: '#00000070',
+          altBackground: '#00000070',
+          fontFamily: 'Montserrat'
+        }
+      });
+      document.addEventListener('DOMContentLoaded', () => {
+        mermaid.run();
+      });
+    </script>
   </head>
   <body class="bg-bauhaus-bg text-bauhaus-dark font-sans min-h-screen flex flex-col">
     <BauhausCanvas />

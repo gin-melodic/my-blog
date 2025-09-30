@@ -1,0 +1,47 @@
+/* KaTeX 样式适配黑色背景主题 */
+.katex {
+  color: #ffffff;
+}
+
+.katex-display {
+  color: #ffffff;
+  text-align: center;
+}
+
+/* 行内公式也使用白色前景色 */
+.katex-inline {
+  color: #ffffff;
+}
+
+/* 防止数学公式中的文本被截断 */
+.katex-display>.katex {
+  white-space: normal;
+}
+
+/* 确保所有数学元素在深色背景下可见 */
+.katex .mathnormal,
+.katex .mathit,
+.katex .mathrm,
+.katex .mathbf,
+.katex .amsrm,
+.katex .mathbb,
+.katex .mathcal,
+.katex .mathfrak,
+.katex .mathtt,
+.katex .mathscr,
+.katex .mathsf,
+.katex .mord,
+.katex .mbin,
+.katex .mrel,
+.katex .mopen,
+.katex .mclose,
+.katex .mpunct,
+.katex .minner {
+  color: #ffffff;
+}
+
+/* 确保运算符也可见 */
+.katex .mop,
+.katex .operator {
+  color: #ffffff;
+}
