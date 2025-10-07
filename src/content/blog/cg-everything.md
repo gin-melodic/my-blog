@@ -1,3 +1,10 @@
+---
+title: "Deep Dive into the `cg-use-everywhere`"
+pubDate: '2025/10/07'
+description: 'A Deep Dive into the Architecture of the `cg-use-everywhere` Custom Node for ComfyUI'
+tags: ["ComfyUI"]
+---
+
 # A Deep Dive into the Architecture of the `cg-use-everywhere` Custom Node for ComfyUI
 
 ## Introduction
