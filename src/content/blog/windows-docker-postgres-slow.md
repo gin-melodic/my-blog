@@ -1,4 +1,10 @@
-# Windows Docker PostgreSQL 连接慢问题解决方案
+---
+title: "解决Windows Docker中PostgreSQL连接慢问题的5种方法"
+pubDate: '2025/10/21'
+description: '了解为什么在Windows上连接Docker中的PostgreSQL会很慢，以及如何通过使用IP地址、优化配置等方式将连接时间从2-3秒缩短到100毫秒以内。'
+tags: ["Docker", "PostgreSQL", "Windows", "数据库优化", "开发技巧"]
+---
+
 
 # Windows Docker PostgreSQL 连接慢问题解决方案
 

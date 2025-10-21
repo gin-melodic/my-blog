@@ -5,7 +5,7 @@ description: 'A Deep Dive into the Architecture of the `cg-use-everywhere` Custo
 tags: ["ComfyUI"]
 ---
 
-# A Deep Dive into the Architecture of the `cg-use-everywhere` Custom Node for ComfyUI
+> A Deep Dive into the Architecture of the `cg-use-everywhere` Custom Node for ComfyUI
 
 ## Introduction
 
@@ -84,8 +84,8 @@ graph TD
         Y --> Z{Custom_Drawn_as_Jumpers};
     end
 
-    style C fill:#dff,stroke:#333,stroke-width:2px
-    style Z fill:#fdf,stroke:#333,stroke-width:2px
+    style C fill:#070,stroke:#333,stroke-width:2px
+    style Z fill:#700,stroke:#333,stroke-width:2px
 </pre>
 
   * **Real Links**: The "noodles" manually created by the user, which are standard `LLink` objects rendered by default by `LGraphCanvas`.

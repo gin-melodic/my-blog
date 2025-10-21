@@ -14,6 +14,9 @@ export default {
         // 我们使用一个无衬线字体，比如 Inter 或 Poppins
         // 你需要在布局文件中从 Google Fonts 引入它
         sans: ['Inter', 'sans-serif'],
+      },
+      backdropBlur: {
+        'md-strong': 'blur(20px)',
       }
     },
   },

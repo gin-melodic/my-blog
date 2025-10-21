@@ -3,13 +3,13 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const allPosts = await getCollection('blog', ({ data }: { data: { title: string; pubDate: Date; description: string; tags: string[]; draft?: boolean; } }) => {
+const allPosts = await getCollection('blog', ({ data }) => {
   // Filter out draft posts, etc.
   return !data.draft;
 });
 
 // Sort by date in descending order
-allPosts.sort((a: { data: { pubDate: number; }; }, b: { data: { pubDate: number; }; }) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 // Get the 3 most recent posts
 const recentPosts = allPosts.slice(0, 3);
@@ -30,10 +30,10 @@ const olderPosts = allPosts.slice(3);
       </h2>
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
-        {recentPosts.map((post: { slug: any; data: { title: unknown; description: unknown; pubDate: string | number | Date; tags: any[]; }; }, index: number) => (
+        {recentPosts.map((post, index) => (
           <a 
             href={`/posts/${post.slug}/`} 
-            class="block p-6 bg-white/20 text-white rounded-lg backdrop-blur-md border border-white hover:shadow-xl hover:border-bauhaus-blue transition-all duration-300 transform hover:-translate-y-2"
+            class="h-full p-6 bg-black/30 text-white/50 rounded-xl backdrop-blur-md border border-white/20 hover:shadow-2xl hover:border-bauhaus-blue transition-all duration-300 transform hover:-translate-y-1 flex flex-col"
             style={`animation: fadeInUp 0.6s ease-out ${index * 0.1 + 0.1}s both;`}
           >
             <div class="flex items-center mb-3">
@@ -41,11 +41,11 @@ const olderPosts = allPosts.slice(3);
                 {new Date(post.data.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
               </time>
             </div>
-            <h3 class="text-xl font-bold text-bauhaus-dark mb-3 line-clamp-2">{post.data.title}</h3>
-            <p class="text-white opacity-75 text-sm mb-4 line-clamp-3">{post.data.description}</p>
-            <div class="flex flex-wrap gap-1">
-              {post.data.tags.slice(0, 2).map((tag: unknown) => (
-                <span class="bg-bauhaus-blue/50 text-white px-2 py-1 rounded text-xs">{tag}</span>
+            <h3 class="text-xl font-bold text-white mb-3 line-clamp-2">{post.data.title}</h3>
+            <p class="text-white/80 text-sm mb-4 line-clamp-3 flex-grow">{post.data.description}</p>
+            <div class="flex flex-wrap gap-1 mt-auto">
+              {post.data.tags.slice(0, 2).map((tag) => (
+                <span class="bg-bauhaus-blue/50 text-white px-2 py-1 rounded text-xs border border-amber-100/20">{tag}</span>
               ))}
             </div>
           </a>
@@ -57,26 +57,24 @@ const olderPosts = allPosts.slice(3);
     <div>
       <h2 class="text-3xl font-bold text-white mb-6">All Posts</h2>
       <div class="space-y-4">
-        {olderPosts.map((post: { slug: any; data: { title: unknown; description: unknown; pubDate: string | number | Date; tags: unknown[]; }; }) => (
+        {olderPosts.map((post) => (
           <a 
             href={`/posts/${post.slug}/`} 
-            class="block p-6 bg-white/20 text-white rounded-lg backdrop-blur-md border border-white hover:shadow-lg hover:border-bauhaus-blue transition-all duration-300"
+            class="p-6 bg-black/30 text-white/50 rounded-xl backdrop-blur-md border border-white/20 hover:shadow-xl hover:border-bauhaus-blue transition-all duration-300 flex flex-col md:flex-row"
           >
-            <div class="flex flex-col md:flex-row md:items-center">
-              <div class="md:w-3/4">
-                <h3 class="text-xl font-bold text-bauhaus-dark mb-2">{post.data.title}</h3>
-                <p class="text-white opacity-75 mb-3">{post.data.description}</p>
-                <div class="flex flex-wrap gap-1 mb-3">
-                  {post.data.tags.slice(0, 3).map((tag: unknown) => (
-                    <span class="bg-bauhaus-yellow/50 text-bauhaus-dark px-2 py-1 rounded text-xs">{tag}</span>
-                  ))}
-                </div>
+            <div class="md:flex-grow flex flex-col">
+              <h3 class="text-xl font-bold text-white mb-2">{post.data.title}</h3>
+              <p class="text-white/80 mb-3 flex-grow">{post.data.description}</p>
+              <div class="flex flex-wrap gap-1 mt-auto">
+                {post.data.tags.slice(0, 3).map((tag) => (
+                  <span class="bg-bauhaus-yellow/50 text-bauhaus-dark px-2 py-1 rounded text-xs border border-amber-100/20">{tag}</span>
+                ))}
               </div>
-              <div class="md:w-1/4 md:text-right">
-                <time datetime={post.data.pubDate.toString()} class="text-sm opacity-75">
-                  {new Date(post.data.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
-                </time>
-              </div>
+            </div>
+            <div class="md:w-1/4 md:text-right mt-4 md:mt-0 md:flex md:flex-col md:justify-center">
+              <time datetime={post.data.pubDate.toString()} class="text-sm opacity-75 whitespace-nowrap">
+                {new Date(post.data.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+              </time>
             </div>
           </a>
         ))}
