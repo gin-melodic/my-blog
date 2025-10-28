@@ -124,3 +124,11 @@ body::before {
 .prose :where(tr:nth-child(even)):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
   background-color: rgba(255, 255, 255, 0.05);
 }
+
+/* Center images in Markdown content */
+.prose :where(img):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
